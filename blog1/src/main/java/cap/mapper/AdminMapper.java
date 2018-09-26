@@ -50,4 +50,6 @@ public interface AdminMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Admin record);
+
+    Admin selectBySelective(Admin admin);
 }

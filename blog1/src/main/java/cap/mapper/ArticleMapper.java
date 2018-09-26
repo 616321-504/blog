@@ -2,6 +2,9 @@ package cap.mapper;
 
 import cap.model.Article;
 import cap.model.ArticleWithBLOBs;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ArticleMapper {
     /**
@@ -42,6 +45,13 @@ public interface ArticleMapper {
      *
      * @mbggenerated
      */
+    List<ArticleWithBLOBs> selectBySelective(ArticleWithBLOBs articleWithBLOBs);
+
+    List<ArticleWithBLOBs> getArticleByPage(@Param("curPage") int curPage, @Param("size") int size);
+
+    List<ArticleWithBLOBs> getArticlePageByUserId(@Param("curPage") int curPage, @Param("size") int size, @Param("userId") int userId);
+
+    List<ArticleWithBLOBs> topTenArticle();
     int updateByPrimaryKeySelective(ArticleWithBLOBs record);
 
     /**
@@ -59,4 +69,10 @@ public interface ArticleMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Article record);
+
+    public List<ArticleWithBLOBs> selectBySearch(@Param("title") String title,
+                                                 @Param("content") String content,
+                                                 @Param("summary") String summary);
+
+    int count();
 }
