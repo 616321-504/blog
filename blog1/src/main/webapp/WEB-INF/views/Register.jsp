@@ -16,7 +16,7 @@
     String errorMsg = (String)request.getSession().getAttribute("errorMsg");
     String existMsg = (String)request.getSession().getAttribute("existMsg");
 %>
-
+1
 <jsp:include page="../../frame/Header.jsp"></jsp:include>
 
 <body>
