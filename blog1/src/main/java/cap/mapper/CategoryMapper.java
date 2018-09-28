@@ -1,6 +1,10 @@
 package cap.mapper;
 
 import cap.model.Category;
+import cap.model.Comment;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CategoryMapper {
     /**
@@ -50,4 +54,10 @@ public interface CategoryMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Category record);
+
+    List<Category> getCategoryPageByUserId(@Param("curPage") int curPage, @Param("size") int size, @Param("userId") int userId);
+
+    public int count(int userId);
+
+    public List<Category> selectByUserId(int userId);
 }
