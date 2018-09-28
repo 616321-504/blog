@@ -1,12 +1,5 @@
 package cap.service;
 
-/**
- * @author 刘贤熔
- * @version 1.0.0
- * @createTIme 2018/9/25 10:09
- **/
-
-
 import cap.mapper.UserMapper;
 import cap.model.User;
 import cap.util.PageControl;
@@ -47,7 +40,7 @@ public class UserService {
     }
 
     public int register(User user) {
-        int res = userMapper.insertSelective(user);
+        int res=userMapper.insertSelective(user);
         return res;
     }
 
@@ -105,17 +98,18 @@ public class UserService {
         return userMapper.getActiveUser(num);
     }
 
-    public User selectByUserName(String name) {
-        User user = userMapper.selectByUsername(name);
+    public User selectByUserName(String name){
+        User user=  userMapper.selectByUsername(name);
+        return user;
+    }
+    public User selectByEmail(String email){
+        User user=  userMapper.selectByEmail(email);
         return user;
     }
 
-    public User selectByEmail(String email) {
-        User user = userMapper.selectByEmail(email);
-        return user;
-    }
-
-    public int getTotalCount() {
+    public int getTotalCount(){
         return userMapper.count();
     }
+
+
 }
